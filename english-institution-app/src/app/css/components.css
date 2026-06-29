@@ -1,0 +1,27 @@
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 py-20;
+  }
+
+  .card {
+    @apply @apply 
+    @apply;
+  }
+
+  .btn {
+    @apply;
+  }
+
+  .btn-primary {
+    @apply;
+  }
+
+  .btn-outline {
+    @apply @apply;
+  }
+
+  .input {
+    @apply @apply 
+    @apply;
+  }
+}
