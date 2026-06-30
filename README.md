@@ -34,7 +34,7 @@
 
 1. کلون کردن مخزن:
 ```bash
-   git clone [لینک-مخزن-شما]
+   git clone https://github.com/GholamiDev/Language-Institution-App.git
 
 cd [./backend]
 python manage.py runserver
