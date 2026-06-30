@@ -30,8 +30,8 @@
 
 
 ### پیش نمایش اپلیکیشن :
-(assets/mainPage.example.png)
-(assets/courses.example.png)
+- **(assets/mainPage.example.png)
+- **(assets/courses.example.png)
 
 ## 🛠 نحوه اجرا
 
