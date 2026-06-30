@@ -28,6 +28,11 @@
 - **سیستم تایید (Approval Workflow)**: کنترل ادمین بر ثبت‌نام اساتید و تایید دوره‌های ایجاد شده برای حفظ کیفیت آموزشی.
 - **بخش مقالات**: ارائه محتوای آموزشی مکمل.
 
+
+### پیش نمایش اپلیکیشن :
+(assets/mainPage.example.png)
+(assets/courses.example.png)
+
 ## 🛠 نحوه اجرا
 
 برای اجرای این پروژه روی سیستم خود:
@@ -42,7 +47,4 @@ python manage.py runserver
 cd [نام-پوشه-فرانت‌اند]
 npm install
 npm run dev
-   
-###پیش نمایش اپلیکیشن :
-(assets/mainPage.example.png)
-(assets/courses.example.png)
+
