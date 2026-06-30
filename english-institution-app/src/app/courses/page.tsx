@@ -88,7 +88,13 @@ export default function CoursesPage() {
   }, [courses]);
 
   const uniqueLanguages = useMemo(() => {
-    return Array.from(new Set(courses.map((c) => c.language).filter(Boolean)));
+    return Array.from(
+      new Set(
+        courses
+          .map((c) => c.language)
+          .filter((lang): lang is string => Boolean(lang)), // اضافه کردن تایپ گارد
+      ),
+    );
   }, [courses]);
 
   const filteredCourses = useMemo(() => {

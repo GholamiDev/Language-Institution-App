@@ -22,6 +22,14 @@ type Course = {
   tutorName?: string;
 };
 
+interface Tutor {
+  id: number;
+  user: {
+    first_name: string;
+    last_name: string;
+  };
+}
+
 export default function Home() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [search, setSearch] = useState("");
@@ -46,8 +54,8 @@ export default function Home() {
           : tutorsData?.results || [];
 
         const tutorMap = tutors.reduce(
-          (acc, tutor) => {
-            acc[tutor.id] = tutor.user.first_name + " " + tutor.user.last_name;
+          (acc: Record<number, string>, tutor: Tutor) => {
+            acc[tutor.id] = `${tutor.user.first_name} ${tutor.user.last_name}`;
             return acc;
           },
           {} as Record<number, string>,
