@@ -36,6 +36,9 @@
 ```bash
    git clone [لینک-مخزن-شما]
 
+cd [./backend]
+python manage.py runserver
+
 cd [نام-پوشه-فرانت‌اند]
 npm install
 npm run dev
