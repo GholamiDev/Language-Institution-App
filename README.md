@@ -43,5 +43,6 @@ cd [نام-پوشه-فرانت‌اند]
 npm install
 npm run dev
    
-
-
+###پیش نمایش اپلیکیشن :
+(assets/mainPage.example.png)
+(assets/courses.example.png)
