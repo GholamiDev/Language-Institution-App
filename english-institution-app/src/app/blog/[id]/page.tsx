@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { api } from "@/app/services/api";
