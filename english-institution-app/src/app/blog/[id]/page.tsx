@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { api } from "@/app/services/api";
@@ -12,10 +13,6 @@ import { MdContentCopy } from "react-icons/md";
 import { BlogDetailSkeleton } from "@/components/loading/BlogDetailSkeleton";
 import { calculateReadingTime } from "@/app/utils/CalculateReadingTime";
 import { toPersianNumber } from "@/app/utils/toPersianNum";
-
-export async function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }];
-}
 
 export default function BlogDetailPage() {
   const { id } = useParams();
