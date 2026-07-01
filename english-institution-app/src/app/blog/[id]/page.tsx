@@ -115,9 +115,3 @@ export default function BlogDetailPage() {
     </main>
   );
 }
-
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return [{ id: "1" }];
-}
