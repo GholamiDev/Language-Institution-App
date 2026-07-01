@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { api } from "@/app/services/api";
@@ -14,27 +15,43 @@ import { BlogDetailSkeleton } from "@/components/loading/BlogDetailSkeleton";
 import { calculateReadingTime } from "@/app/utils/CalculateReadingTime";
 import { toPersianNumber } from "@/app/utils/toPersianNum";
 
+const MOCK_BLOG = {
+  title: "راهنمای جامع یادگیری زبان در سال ۲۰۲۴",
+  difficulty_level: "متوسط",
+  created_at: new Date().toISOString(),
+  content:
+    "<p>این یک متن پیش‌فرض برای نمایش دمو است. پس از اتصال کامل به بک‌اِند، مطالب واقعی نمایش داده می‌شوند.</p><p>یادگیری زبان نیازمند تداوم و استفاده از منابع معتبر است.</p>",
+  picture:
+    "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1000&auto=format&fit=crop",
+};
+
 export default function BlogDetailPage() {
-  const { id } = useParams();
+  const params = useParams();
   const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const id = params?.id;
     if (!id) return;
-    const blogId = Array.isArray(id) ? id[0] : id;
 
     const fetchBlog = async () => {
       try {
-        const res = await api.getBlogDetail(blogId);
-        setBlog(res);
+        const res = await api.getBlogDetail(id as string);
+        if (res) {
+          setBlog(res);
+        } else {
+          setBlog(MOCK_BLOG);
+        }
       } catch (err) {
-        console.error("خطا:", err);
+        console.error("خطا در دریافت اطلاعات:", err);
+        setBlog(MOCK_BLOG);
       } finally {
         setLoading(false);
       }
     };
+
     fetchBlog();
-  }, [id]);
+  }, [params]);
 
   if (loading) return <BlogDetailSkeleton />;
   if (!blog) return <div className="text-center py-20">بلاگ پیدا نشد.</div>;
@@ -44,7 +61,7 @@ export default function BlogDetailPage() {
   const shareTitle = blog?.title || "";
 
   return (
-    <main className=" min-h-screen py-10 px-4 md:px-0 mt-15">
+    <main className="min-h-screen py-10 px-4 md:px-0 mt-15">
       <article className="max-w-3xl mx-auto bg-(--card-bg) p-8 md:p-12 rounded-2xl shadow-(--shadow-custom) border border-(--card-border)">
         <header className="mb-8">
           <h1 className="text-3xl md:text-5xl font-bold text-primary mt-4 mb-2 leading-tight">
