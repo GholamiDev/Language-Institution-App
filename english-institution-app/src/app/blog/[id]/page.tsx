@@ -14,6 +14,10 @@ import { BlogDetailSkeleton } from "@/components/loading/BlogDetailSkeleton";
 import { calculateReadingTime } from "@/app/utils/CalculateReadingTime";
 import { toPersianNumber } from "@/app/utils/toPersianNum";
 
+export async function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }];
+}
+
 export default function BlogDetailPage() {
   const { id } = useParams();
   const [blog, setBlog] = useState<any>(null);
